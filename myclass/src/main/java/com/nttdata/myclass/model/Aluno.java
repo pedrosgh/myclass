@@ -20,7 +20,7 @@ public class Aluno {
     private String cpf;
 
     @Column(name = "idade")
-    private int idade;
+    private Integer idade;
 
     @Column(name = "sexo", columnDefinition = "CHAR")
     private String sexo;
@@ -29,7 +29,7 @@ public class Aluno {
     private char pne;
 
     @Column(name = "escolaridade")
-    private String escolaridade;
+    private Integer escolaridade;
 
     public String getMatricula() {
         return matricula;
@@ -55,11 +55,11 @@ public class Aluno {
         this.cpf = cpf;
     }
 
-    public int getIdade() {
+    public Integer getIdade() {
         return idade;
     }
 
-    public void setIdade(int idade) {
+    public void setIdade(Integer idade) {
         this.idade = idade;
     }
 
@@ -79,11 +79,11 @@ public class Aluno {
         this.pne = pne;
     }
 
-    public String getEscolaridade() {
+    public Integer getEscolaridade() {
         return escolaridade;
     }
 
-    public void setEscolaridade(String escolaridade) {
+    public void setEscolaridade(Integer escolaridade) {
         this.escolaridade = escolaridade;
     }
 }

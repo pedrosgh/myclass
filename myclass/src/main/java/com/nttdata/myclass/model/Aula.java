@@ -1,5 +1,7 @@
 package com.nttdata.myclass.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -21,6 +23,7 @@ public class Aula {
     private Aluno aluno;
 
     @Column(name = "data")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date data;
 
     @Column(name = "media")

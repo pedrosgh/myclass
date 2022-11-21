@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Create New Aula</title>
+</head>
+<body>
+<div align="center">
+    <h1>Create New Aula</h1>
+    <br />
+    <form action="#" th:action="@{/save/aula}" th:object="${aula}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>ID:</td>
+                <td><input type="text" th:field="*{id}" /></td>
+            </tr>
+            <tr>
+                <td>Professor</td>
+                <td><select th:field="*{professor}">
+                    <option th:each="i : ${listProfessores}" th:value="${i.cpf}" th:text="${i.nome}"/>
+                </select></td>
+            </tr>
+            <tr>
+                <td>Aluno</td>
+                <td><select th:field="*{aluno}">
+                    <option th:each="i : ${listAlunos}" th:value="${i.matricula}" th:text="${i.nome}"/>
+                </select></td>
+            </tr>
+            <tr>
+                <td>Data:</td>
+                <td><input type="date" th:field="*{data}" /></td>
+            </tr>
+            <tr>
+                <td>Media:</td>
+                <td><input type="number" th:field="*{media}" /></td>
+            </tr>
+            <tr>
+                <td>Duração:</td>
+                <td><input type="number" th:field="*{duracao}" /></td>
+            </tr>
+            <tr>
+                <td>Valor:</td>
+                <td><input type="number" th:field="*{valor}" /></td>
+            </tr>
+            <tr>
+                <td>Resultado:</td>
+                <td><input type="text" th:field="*{resultado}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

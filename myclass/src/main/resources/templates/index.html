@@ -8,24 +8,127 @@
 <body>
 <div align="center">
     <h1>MyClass Application</h1>
-    <a href="/new">Create new disciplina</a>
+    <a href="/new/disciplina">Create new disciplina</a>
     <br/><br/>
     <table border="1" cellpadding="10">
         <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
+            <th>Nome</th>
+            <th>Area</th>
             <th>Actions</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="disciplina : ${listDisciplinas}">
-            <td th:text="${disciplina.id}">ID</td>
-            <td th:text="${disciplina.titulo}">Name</td>
+            <td th:text="${disciplina.id}"></td>
+            <td th:text="${disciplina.titulo}"></td>
+            <td th:text="${disciplina.area}"></td>
             <td>
-                <a th:href="@{'/edit/' + ${disciplina.id}}">Edit</a>
+                <a th:href="@{'/edit/disciplina/' + ${disciplina.id}}">Edit</a>
                 &nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/delete/' + ${disciplina.id}}">Delete</a>
+                <a th:href="@{'/delete/disciplina/' + ${disciplina.id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br/><br/>
+    <a href="/new/professor">Create new professor</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>CPF</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Sexo</th>
+            <th>Tempo de ensino</th>
+            <th>Salario</th>
+            <th>Disciplina</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="professor : ${listProfessores}">
+            <td th:text="${professor.cpf}"></td>
+            <td th:text="${professor.nome}"></td>
+            <td th:text="${professor.idade}"></td>
+            <td th:text="${professor.sexo}"></td>
+            <td th:text="${professor.tempoEnsino}"></td>
+            <td th:text="${professor.salario}"></td>
+            <td th:text="${professor.disciplina.titulo}"></td>
+            <td>
+                <a th:href="@{'/edit/professor/' + ${professor.cpf}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/professor/' + ${professor.cpf}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br/><br/>
+    <a href="/new/aluno">Create new aluno</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Matricula</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Idade</th>
+            <th>Sexo</th>
+            <th>PNE</th>
+            <th>Escolaridade</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="aluno : ${listAlunos}">
+            <td th:text="${aluno.matricula}"></td>
+            <td th:text="${aluno.nome}"></td>
+            <td th:text="${aluno.cpf}"></td>
+            <td th:text="${aluno.idade}"></td>
+            <td th:text="${aluno.sexo}"></td>
+            <td th:text="${aluno.pne}"></td>
+            <td th:text="${aluno.escolaridade}"></td>
+            <td>
+                <a th:href="@{'/edit/aluno/' + ${aluno.matricula}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/aluno/' + ${aluno.matricula}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br/><br/>
+    <a href="/new/aula">Create new aula</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Professor</th>
+            <th>Aluno</th>
+            <th>Data</th>
+            <th>Media</th>
+            <th>Duração</th>
+            <th>Valor</th>
+            <th>Resultado</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="aula : ${listAulas}">
+            <td th:text="${aula.id}"></td>
+            <td th:text="${aula.professor.nome}"></td>
+            <td th:text="${aula.aluno.nome}"></td>
+            <td th:text="${aula.data}"></td>
+            <td th:text="${aula.media}"></td>
+            <td th:text="${aula.duracao}"></td>
+            <td th:text="${aula.valor}"></td>
+            <td th:text="${aula.resultado}"></td>
+            <td>
+                <a th:href="@{'/edit/aula/' + ${aula.id}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/aula/' + ${aula.id}}">Delete</a>
             </td>
         </tr>
         </tbody>
